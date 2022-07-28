@@ -1,0 +1,75 @@
+/* Fonte importada do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* { /*Border box adicionado para todo o site */
+    box-sizing: border-box;
+    /*  É possível usar essa propriedade para emular
+     o comportamento dos navegadores */
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex; /*coloca as imagens uma do lado da outra */ 
+    /* Removido flex-direction: column para as imagem ficarem uma do lado da outra*/
+    align-items: center; /* coloca os elementos no centro da página */
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh; /* pega toda a area do navegador */
+}
+
+.container{
+    display: flex; /* Coloca as imagens de lado
+     / O elemento se comporta como um elemento de bloco
+       e apresenta seu conteúdo de acordo com o modelo flexbox. */
+    width: 90vw;
+    /* As unidades vh e vw são úteis quando é preciso usar
+     a largura ou a altura da viewport. 90vw para width e 80vh para height */
+}
+
+.panel{
+    background-size: cover; /* Ajusta a imagem o mais largamente possível e mantém sua proporção 
+    A imagem "cobre" o container inteiro, tanto em altura como em largura. */ 
+    background-position: center;
+    background-repeat: no-repeat; /*evita que a imagem se repita */
+    height: 80vh;
+    border-radius: 70px; /* configura borda para o background */
+    color: white; /* cor da fonte dentro da imagem */
+    cursor: pointer; /* cursor do mouse invez de seta é uma mão */
+    flex: 0.5;
+    margin: 10px; /* separando as imagens com uma margem */
+    position: relative; /* coloca o texto completamente dentro da imagem */
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px; /* configurando onde o texto vai ficar */
+    left: 60px;   /* configurando onde o texto vai ficar */
+    margin: 0;
+    opacity: 0; /* removendo o texto quando nao ta em active */
+ 
+}
+
+.panel.active { /*Apenas nos paineis ativos */
+    flex: 4; /* aumenta o tamanho do painel que ta ativo pra 5 */
+}
+
+.panel.active h3{
+    opacity: 1; /* colocando o texto para aparecer no painel ativo */
+    transition: opacity 0.3s ease-in 0.4s; /* timer para o texto aparecer */
+}
+
+@media (max-width: 480px) { /* quando a tela ficar pequena, diminuir as imagens de 5 para 3 */ 
+    .container{
+        width: 100vw;
+    }
+    .panel:nth-of-type(4) /* Seleciona cada quarto elemento (.panel)
+    entre qualquer grupo de irmãos */
+    .panel:nth-of-type(5){
+        display: none;
+    }
+     
+}
