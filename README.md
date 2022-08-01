@@ -1,5 +1,5 @@
 # cartas-expandidas
-Exercício Prático 1 /50
+Exercício Prático 1 / 50
 
 Um site responsivo onde há 5 imagens retraidas e ao clicar ela expande.
 
